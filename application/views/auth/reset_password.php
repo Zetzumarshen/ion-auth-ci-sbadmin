@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php $this->load->view('header', array('js_scripts' => $js_scripts, 'css_scripts' => $css_scripts)) ?>
+<body>
+<div id="wrapper">
+
+    <?php $this->load->view('navbar') ?>
+    <div id="page-wrapper">
+        <h1><?php echo lang('reset_password_heading'); ?></h1>
+
+        <div id="infoMessage"><?php echo $message; ?></div>
+
+        <?php echo form_open('auth/reset_password/' . $code); ?>
+
+        <p>
+            <label
+                for="new_password"><?php echo sprintf(lang('reset_password_new_password_label'), $min_password_length); ?></label>
+            <br/>
+            <?php echo form_input($new_password); ?>
+        </p>
+
+        <p>
+            <?php echo lang('reset_password_new_password_confirm_label', 'new_password_confirm'); ?> <br/>
+            <?php echo form_input($new_password_confirm); ?>
+        </p>
+
+        <?php echo form_input($user_id); ?>
+        <?php echo form_hidden($csrf); ?>
+
+        <p><?php echo form_submit('submit', lang('reset_password_submit_btn')); ?></p>
+
+        <?php echo form_close(); ?>
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<footer>
+    <div class="panel-footer">
+        <div class="row">
+            <h4 style="text-align: center;">    &#169;
+                2016<?php echo(strftime('%Y') === "2016" ? ' ' : '-' . strftime('%Y')) ?> DIREKTORAT USAHA
+                PELABUHAN</h4>
+        </div>
+        <div class="row">
+            <h5 style="text-align: center;">PT. ASDP INDONESIA FERRY - DIVISI ANEKA USAHA JASA</h5>
+        </div>
+        <div class="row">
+            <div style="text-align: center;">oleh Dimas Prameshwara</div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
